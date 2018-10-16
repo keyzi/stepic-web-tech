@@ -1,5 +1,4 @@
-sudo -s ln -sf /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/django.conf
-sudo -s rm /etc/nginx/sites-enabled/default
-
+sudo ln -sf /home/box/web/etc/nginx.conf /etc/nginx/sites-enabled/test.conf
+sudo rm -rf /etc/nginx/sites-enabled/default
 # restart nginx
-sudo -s /etc/init.d/nginx restart
+sudo /etc/init.d/nginx restart
