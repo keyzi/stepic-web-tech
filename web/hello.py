@@ -1,11 +1,7 @@
-from re import sub
-
-def app(environ, start_response):
-	"""wsgi minimal app.
-	$ gunicorn hello.app
-	"""
-	output = sub ('&','\n',environ('QUERY_STRING',''))
-	
-	start_response('200 OK','[('Content-Type', 'text/plain')]
-	return iter([str.encode(output)])
+def wsgi_app(env, start_responce):
+    status = '200 OK'
+    headers = [('Content-Type', 'text/plain')]
+    body = '\r\n'.join(env['QUERY_STRING'].split('&'))
+    start_responce(status, headers)
+    return body
 	
